@@ -241,5 +241,32 @@ colPerc(table1)
 
  The numerical results for the drug users shows the percentages of drug users who got covid while taking the vaccine and drug users who got covid while taking the placebo. It shows that 8.3% of the drug users who got covid took the placebo. Whereas 91.7% of the drug users who got covid took the vaccine. This comes to show that the vaccine is ineffective towards the drug users at preventing the contraction of covid-19.
 
+### Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+Druguserfish <- fisher.test(table1)
+Druguserfish
+```
+
+A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 3e-12, which is a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
+The null hypothesis is rejected in favor of the alternative hypothesis. The vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as drug users.
+The odds ratio above came out to be 0.087, meaning that those drug users that took the vaccine were very likely to contract covid than those who took the placebo. The odds of getting covid-19 while taking the vaccine is 0.6:3.3, meaning there is a big chance at contracting covid while taking the vaccine for the drug users
+
+```{r}
+effect <- Druguserfish$p.value/(Druguserfish$p.value +1)
+effectivenessDruguser = Druguserfish$estimate/(Druguserfish$estimate +1)*100
+print(effectivenessDruguser)
+```
+
+```{r}
+low=(Druguserfish$conf.int[1]/(Druguserfish$conf.int[1] +1))*100
+hi=(Druguserfish$conf.int[2]/(Druguserfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+
+
 
 # Overall Results and Conclusions
