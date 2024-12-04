@@ -93,6 +93,11 @@ hi=(malesfish$conf.int[2]/(malesfish$conf.int[2] +1))*100
 options(digits=2)
 ```
 
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+The odds ratio essentially shows how effective the vaccine is. The odds ratio for the males is around 73.8, with an effectiveness confidence interval of low being  68.84-78.32% hi, meaning that the vaccine is effective in protecting males from getting covid-19.
+
+
 ## Females
 
 
